@@ -16,49 +16,49 @@ import java.util.List;
 public class MyController {
 
     @Autowired
-    private UserDao userDao;
+    private UserService userService;
 
     @GetMapping()
     public String showAllUsers(ModelMap model) {
-        List<User> list = userDao.getAllUsers();
+        List<User> list = userService.getAllUsers();
         model.addAttribute("allUsers", list);
         return "users";
     }
-//
-//
-//   @GetMapping("/{id}")
-//    public String show(@PathVariable("id") Integer id, ModelMap modelMap) {
-//        modelMap.addAttribute("user", userService.show(id));
-//        return "idUsers";
-//    }
-//
-//    @GetMapping("/new")
-//    public String addUser(ModelMap modelMap) {
-//        modelMap.addAttribute("addUser", new User());
-//        return "userAdd";
-//    }
-//
-//    @PostMapping()
-//    public String addUserBd(@ModelAttribute("addUser") User user) {
-//        userService.save(user);
-//        return "redirect:/people";
-//    }
-//
-//    @GetMapping("/{id}/edit")
-//    public String edit(@PathVariable("id") Integer id, ModelMap modelMap) {
-//        modelMap.addAttribute("user", userService.show(id));
-//        return "edit";
-//    }
-//
-//    @PatchMapping("/{id}")
-//    public String update(@ModelAttribute("user") User user, @PathVariable("id") Integer id) {
-//        userService.ubdate(id, user);
-//        return "redirect:/people";
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public String delete(@PathVariable("id") Integer id) {
-//        userService.delete(id);
-//        return "redirect:/people";
-//    }
+
+
+   @GetMapping("/{id}")
+    public String show(@PathVariable("id") Integer id, ModelMap modelMap) {
+        modelMap.addAttribute("user", userService.show(id));
+        return "idUsers";
+    }
+
+    @GetMapping("/new")
+    public String addUser(ModelMap modelMap) {
+        modelMap.addAttribute("addUser", new User());
+        return "userAdd";
+    }
+
+    @PostMapping()
+    public String addUserBd(@ModelAttribute("addUser") User user) {
+        userService.save(user);
+        return "redirect:/people";
+    }
+
+    @GetMapping("/{id}/edit")
+    public String edit(@PathVariable("id") Integer id, ModelMap modelMap) {
+        modelMap.addAttribute("user", userService.show(id));
+        return "edit";
+    }
+
+    @PatchMapping("/{id}")
+    public String update(@ModelAttribute("user") User user, @PathVariable("id") Integer id) {
+        userService.ubdate(id, user);
+        return "redirect:/people";
+    }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") Integer id) {
+        userService.delete(id);
+        return "redirect:/people";
+    }
 }
