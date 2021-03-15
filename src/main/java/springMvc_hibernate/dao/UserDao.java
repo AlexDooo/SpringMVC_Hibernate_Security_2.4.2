@@ -1,5 +1,6 @@
 package springMvc_hibernate.dao;
 
+import springMvc_hibernate.model.Role;
 import springMvc_hibernate.model.User;
 
 import java.util.List;
@@ -11,7 +12,12 @@ public interface UserDao {
 
     User show(int id);
 
-    void ubdate(int id, User user);
+    Role showRole(int id);
+
+    void update(User ubdateUser, String[] role);
 
     void delete(int id);
+
+    User getUserByName(String name);
+
 }

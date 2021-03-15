@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-   @Autowired
+    @Autowired
     private UserDao userDao;
 
     @Override
@@ -35,8 +35,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional()
-    public void ubdate(int id, User user) {
-        userDao.ubdate(id,user);
+    public void ubdate(User user, String[] role) {
+        userDao.update(user, role);
     }
 
     @Override
@@ -44,4 +44,5 @@ public class UserServiceImpl implements UserService {
     public void delete(int id) {
         userDao.delete(id);
     }
+
 }

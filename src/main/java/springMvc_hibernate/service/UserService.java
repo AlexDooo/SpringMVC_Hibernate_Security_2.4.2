@@ -1,5 +1,6 @@
 package springMvc_hibernate.service;
 
+import springMvc_hibernate.model.Role;
 import springMvc_hibernate.model.User;
 
 import java.util.List;
@@ -11,7 +12,7 @@ public interface UserService {
 
     User show(int id);
 
-    void ubdate(int id, User user);
+    void ubdate( User user,String[] role);
 
     void delete(int id);
 }

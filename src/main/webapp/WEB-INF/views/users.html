@@ -4,16 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <title>All Users</title>
+    <style>
+        th, td {
+            padding: 25px;
+        }
+    </style>
 </head>
 <body>
-<div th:each="user : ${allUsers}">
-    <a th:href="@{/people/{id}(id=${user.getId()})}" th:text="${user}">user</a>
+<div style="border: 5px solid #ddd;padding:10px;margin-bottom:20px;">
+
+    <a href="http://localhost:8088/admin/new">Create new user</a>
+
+</div>
+<div style="border: 5px solid #ddd;padding:10px;margin-bottom:20px;">
+
+    <a href="http://localhost:8088/login">Exit</a>
 
 </div>
 
-<dr/>
-<hr/>
 
-<a href="http://localhost:8088/SpringMVC_Hibernate_war_exploded/people/new">Create new user</a>
+<table>
+    <tr>
+        <th>All User</th>
+    </tr>
+</table>
+<table border="allUser">
+
+    <tr>
+        <th>Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Login</th>
+        <th>Password</th>
+        <th>Role</th>
+    </tr>
+    <tr th:each="user : ${allUsers}">
+        <td><a th:href="@{/{id}(id=${user.getId()})}" th:text="${user.name}"></a>
+        </td>
+        <td th:text="${user.lastName}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.userName}"></td>
+        <td th:text="${user.password}"></td>
+        <td th:text="${user.getRoles()}"></td>
+    </tr>
+
+
+</table>
+
+<dr/>
+
 </body>
 </html>

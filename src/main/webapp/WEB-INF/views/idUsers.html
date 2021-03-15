@@ -6,11 +6,19 @@
     <title>id users</title>
 </head>
 <body>
+<div style="border: 5px solid #dddddd;padding:10px;margin-bottom:20px;">
+
+    <a href="http://localhost:8088/login">Exit</a>
+
+</div>
+
 <p th:text="${user.getName()}">VALUE</p>
 <p th:text="${user.getId()}">VALUE</p>
 
-<a th:href="@{/people/{id}/edit(id=${user.getId()})}">Edit</a>
-<form th:method="DELETE" th:action="@{/people/{id}(id=${user.getId()})}">
+<a th:href="@{/{id}/edit(id=${user.getId()})}">Edit</a>
+
+<form th:method="DELETE" th:action="@{/{id}(id=${user.getId()})}">
+    <br/>
     <input type="submit" value="Delete"/>
 </form>
 </body>
